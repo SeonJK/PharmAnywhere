@@ -10,8 +10,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^1.8.2",
+    "fast-xml-parser": "^5.0.8",
     "react": "19.0.0",
-    "react-native": "0.78.0"
+    "react-native": "0.78.0",
+    "react-native-dotenv": "^3.4.11",
+    "react-native-geolocation-service": "^5.3.1",
+    "react-native-permissions": "^5.2.6"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
