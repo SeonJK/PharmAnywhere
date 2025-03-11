@@ -17,8 +17,39 @@ function App(): React.JSX.Element {
 
   // 앱 초기화 시 위치 기반 데이터 로드
   useEffect(() => {
+    console.log('App mounted, initializing data...');
     initializeLocationBasedData();
   }, [initializeLocationBasedData]);
+
+  // 디버깅을 위한 상태 로깅
+  useEffect(() => {
+    console.log('Current state:', {
+      loading,
+      error,
+      pharmaciesCount: pharmacies.length,
+      address,
+    });
+  }, [loading, error, pharmacies, address]);
+
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.centerContent}>
+          <Text>로딩 중...</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (error) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.centerContent}>
+          <Text style={styles.errorText}>{error}</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -64,6 +95,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: UI.COLORS.TEXT.SECONDARY,
     marginTop: 4,
+  },
+  centerContent: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: 'red',
+    textAlign: 'center',
+    padding: 16,
   },
 });
 
