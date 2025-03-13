@@ -69,7 +69,7 @@ export const convertLocationToAddress = async (
     // 실제 구현 시에는 해당 API를 호출하여 주소를 가져와야 합니다.
     return {
       sido: '서울특별시', // 시도 단위 더미 데이터
-      sigungu: '강남구',  // 시군구 단위 더미 데이터
+      sigungu: '관악구',  // 시군구 단위 더미 데이터
     };
   } catch (error) {
     console.error('주소 변환 중 오류 발생:', error);

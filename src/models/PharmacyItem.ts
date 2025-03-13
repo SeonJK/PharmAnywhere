@@ -6,6 +6,11 @@ export interface PharmacyItem {
   dutyAddr: string;
   dutyName: string;
   dutyTel1: string;
+  hpid: string;
+  postCdn1: string;
+  postCdn2: string;
+  wgs84Lon: string;
+  wgs84Lat: string;
   dutyTime1s?: string;
   dutyTime1c?: string;
   dutyTime2s?: string;

@@ -31,7 +31,7 @@ export const usePharmacyViewModel = () => {
       setPharmacies(data);
     } catch (error) {
       console.error('약국 정보 로드 실패:', error);
-      setError(error instanceof Error ? error.message : '약국 정보를 가져오는데 실패했습니다.');
+      setError(error instanceof Error ? "fetchPharmacies() :: " + error.message : '약국 정보를 가져오는데 실패했습니다.');
     } finally {
       setLoading(false);
     }
@@ -69,7 +69,7 @@ export const usePharmacyViewModel = () => {
       await fetchPharmacies(addressInfo.sido, addressInfo.sigungu);
     } catch (error) {
       console.error('초기화 중 오류 발생:', error);
-      setError(error instanceof Error ? error.message : '약국 정보를 가져오는데 실패했습니다.');
+      setError(error instanceof Error ? "initializeLocationBasedData() :: " + error.message : '약국 정보를 가져오는데 실패했습니다.');
     } finally {
       setLoading(false);
     }
@@ -91,7 +91,7 @@ export const usePharmacyViewModel = () => {
           setAddress(addressInfo);
           await fetchPharmacies(addressInfo.sido, addressInfo.sigungu);
         } catch (error) {
-          setError(error instanceof Error ? error.message : '주소 변환에 실패했습니다.');
+          setError(error instanceof Error ? "handleRefresh() :: " + error.message : '주소 변환에 실패했습니다.');
         }
       };
       getAddressAndFetch();
